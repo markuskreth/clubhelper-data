@@ -2,14 +2,6 @@ package de.kreth.clubhelper.model.data;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "pflichten")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Pflicht extends BaseEntity implements Serializable, Comparable<Pflicht> {
 
     private static final long serialVersionUID = -5461809622545899132L;

@@ -1,21 +1,13 @@
 package de.kreth.clubhelper.model.data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "notes")
-public class PersonNote implements PersonRelated {
+public class PersonNote implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private static final long serialVersionUID = -1205022633454190496L;
+
     private int id;
 
-    @ManyToOne
     private Person person;
 
     private String notekey = "";
@@ -31,16 +23,6 @@ public class PersonNote implements PersonRelated {
 
     public void setId(int id) {
 	this.id = id;
-    }
-
-    @Override
-    public Person getPerson() {
-	return person;
-    }
-
-    @Override
-    public void setPerson(Person person) {
-	this.person = person;
     }
 
     public String getNotekey() {

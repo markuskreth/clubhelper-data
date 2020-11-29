@@ -2,38 +2,19 @@ package de.kreth.clubhelper.model.data;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 /**
  * The persistent class for the relative database table.
  */
-@Entity
-@Table(name = "relative")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Relative extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "TO_PERSON1_RELATION")
     private String toPerson1Relation;
 
-    @Column(name = "TO_PERSON2_RELATION")
     private String toPerson2Relation;
 
-    // bi-directional many-to-one association to Person
-    @ManyToOne
-    @JoinColumn(name = "person1")
     private Person person1Bean;
 
-    // bi-directional many-to-one association to Person
-    @ManyToOne
-    @JoinColumn(name = "person2")
     private Person person2Bean;
 
     public Relative() {

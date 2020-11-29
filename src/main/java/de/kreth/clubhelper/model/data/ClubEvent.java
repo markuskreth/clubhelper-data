@@ -6,16 +6,6 @@ import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
 import de.kreth.clubhelper.model.data.CompetitionType.Type;
 
 /**
@@ -24,9 +14,6 @@ import de.kreth.clubhelper.model.data.CompetitionType.Type;
  * @author markus
  *
  */
-@Entity
-@Table(name = "clubevent")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class ClubEvent extends BaseEntity implements EntityAccessor {
 
     private String caption;
@@ -44,14 +31,10 @@ public class ClubEvent extends BaseEntity implements EntityAccessor {
 
     private boolean deleted;
 
-    @ManyToMany
     private Set<Person> persons;
 
-    @OneToMany
     private Set<Altersgruppe> altersgruppen;
 
-    @OneToOne
-    @JoinColumn(name = "id", nullable = true)
     private CompetitionType competitionType;
 
     public String getCaption() {
@@ -91,7 +74,6 @@ public class ClubEvent extends BaseEntity implements EntityAccessor {
 	this.competitionType.setType(competitionType);
     }
 
-    @Transient
     public String toDisplayString() {
 	return "ClubEvent [Caption=" + getCaption() + ", Start=" + getStart() + ", location=" + location + "]";
     }

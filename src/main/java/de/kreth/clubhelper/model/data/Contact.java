@@ -2,19 +2,10 @@ package de.kreth.clubhelper.model.data;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 /**
  * The persistent class for the contact database table.
  */
-@Entity
-@Table(name = "contact")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Contact extends BaseEntity implements Serializable, PersonRelated {
+public class Contact extends BaseEntity implements Serializable {
     private static final long serialVersionUID = -7631864028095077913L;
 
     public enum Type {
@@ -35,9 +26,6 @@ public class Contact extends BaseEntity implements Serializable, PersonRelated {
 
     private String type;
     private String value;
-    // bi-directional many-to-one association to Person
-    @ManyToOne
-    private Person person;
 
     public String getType() {
 	return type;
@@ -53,16 +41,6 @@ public class Contact extends BaseEntity implements Serializable, PersonRelated {
 
     public void setValue(String value) {
 	this.value = value;
-    }
-
-    @Override
-    public Person getPerson() {
-	return person;
-    }
-
-    @Override
-    public void setPerson(Person person) {
-	this.person = person;
     }
 
     @Override

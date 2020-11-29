@@ -4,16 +4,6 @@ import java.io.Serializable;
 import java.time.temporal.ChronoField;
 import java.time.temporal.Temporal;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "altersgruppe")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Altersgruppe extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 126215772910869273L;
@@ -24,11 +14,8 @@ public class Altersgruppe extends BaseEntity implements Serializable {
 
     private int end;
 
-    @ManyToOne
     private Pflicht pflicht;
 
-    @ManyToOne
-    @JoinColumn(name = "event_id")
     private ClubEvent clubEvent;
 
     @Override

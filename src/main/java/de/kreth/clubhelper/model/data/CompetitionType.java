@@ -2,29 +2,14 @@ package de.kreth.clubhelper.model.data;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "clubevent_addon")
 public class CompetitionType implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
     private String id;
 
-    @Column(name = "competition_type", nullable = false, length = 45)
     private String type;
 
-    @OneToOne(mappedBy = "competitionType")
-    @JoinColumn(name = "id")
-    @MapsId
     private ClubEvent clubEvent;
 
     public Type getType() {

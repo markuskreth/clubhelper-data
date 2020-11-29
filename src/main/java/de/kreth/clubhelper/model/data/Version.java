@@ -3,27 +3,16 @@ package de.kreth.clubhelper.model.data;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 /**
  * The persistent class for the version database table.
  * 
  */
-@Entity
-@Table(name = "version")
 public class Version implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private static final long serialVersionUID = -3048358994940499635L;
+
     private int id;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date deleted;
 
     private int version;

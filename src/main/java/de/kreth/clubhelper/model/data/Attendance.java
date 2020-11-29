@@ -3,39 +3,25 @@ package de.kreth.clubhelper.model.data;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 /**
  * The persistent class for the attendance database table.
  */
-@Entity
-@Table(name = "attendance")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Attendance extends BaseEntity implements Serializable, PersonRelated {
+public class Attendance extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 2385033161272078335L;
 
-    @Column(name = "on_date")
     private LocalDate onDate;
 
-    @ManyToOne
     private Person person;
 
     public LocalDate getOnDate() {
 	return this.onDate;
     }
 
-    @Override
     public Person getPerson() {
 	return person;
     }
 
-    @Override
     public void setPerson(Person person) {
 	this.person = person;
     }

@@ -4,35 +4,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 /**
  * The persistent class for the startpaesse database table.
  * 
  */
-@Entity
-@Table(name = "startpaesse")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Startpass extends BaseEntity implements Serializable, PersonRelated {
+public class Startpass extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "startpass_nr")
     private String startpassNr;
 
-    @OneToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
-
-    // bi-directional many-to-one association to StartpassStartrechte
-    @OneToMany(mappedBy = "startpaesse")
     private List<StartpassStartrechte> startpassStartrechte;
 
     public StartpassStartrechte addStartpassStartrechte(StartpassStartrechte startpassStartrechte) {
@@ -61,16 +42,6 @@ public class Startpass extends BaseEntity implements Serializable, PersonRelated
 
     public void setStartpassNr(String startpassNr) {
 	this.startpassNr = startpassNr;
-    }
-
-    @Override
-    public Person getPerson() {
-	return person;
-    }
-
-    @Override
-    public void setPerson(Person person) {
-	this.person = person;
     }
 
     public List<StartpassStartrechte> getStartpassStartrechte() {

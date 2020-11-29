@@ -5,33 +5,18 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
 /**
  * The persistent class for the person database table.
  */
-@Entity
-@Table(name = "person")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Person extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = -8361264400619997123L;
 
-    @Basic
     private LocalDate birth;
     private String prename;
     private String surname;
 
     private Integer gender;
-    @ManyToMany
-    @JoinTable(name = "persongroup", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
     private List<GroupDef> groups;
 
     public Gender getGender() {
