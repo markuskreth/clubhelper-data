@@ -1,4 +1,4 @@
-package de.kreth.clubhelper.model.data;
+package de.kreth.clubhelper.data;
 
 import java.time.Instant;
 import java.time.ZoneId;
@@ -6,7 +6,7 @@ import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.Set;
 
-import de.kreth.clubhelper.model.data.CompetitionType.Type;
+import de.kreth.clubhelper.data.CompetitionType.Type;
 
 /**
  * Calendar Event item corresponding to google calendar events.

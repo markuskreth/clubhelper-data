@@ -1,4 +1,4 @@
-package de.kreth.clubhelper.model.data;
+package de.kreth.clubhelper.data;
 
 import java.io.Serializable;
 
@@ -13,11 +13,18 @@ public class CompetitionType implements Serializable {
     private ClubEvent clubEvent;
 
     public Type getType() {
+	if (this.type == null) {
+	    return null;
+	}
 	return Type.valueOf(type);
     }
 
     public void setType(Type type) {
-	this.type = type.name();
+	if (type == null) {
+	    this.type = null;
+	} else {
+	    this.type = type.name();
+	}
     }
 
     public void setClubEvent(ClubEvent clubEvent) {

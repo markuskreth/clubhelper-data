@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import de.kreth.clubhelper.model.data.Gender;
+import de.kreth.clubhelper.data.Gender;
 
 @JsonComponent
 public class GenderDeserializer extends JsonDeserializer<Gender> {

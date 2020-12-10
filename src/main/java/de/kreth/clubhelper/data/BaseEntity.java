@@ -1,4 +1,4 @@
-package de.kreth.clubhelper.model.data;
+package de.kreth.clubhelper.data;
 
 import java.time.LocalDateTime;
 
