@@ -8,6 +8,10 @@ public abstract class BaseEntity implements EntityAccessor {
     private LocalDateTime created;
     private LocalDateTime deleted;
 
+    public BaseEntity() {
+	id = -1;
+    }
+
     public LocalDateTime getChanged() {
 	return this.changed;
     }
