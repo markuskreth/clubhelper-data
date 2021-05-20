@@ -60,8 +60,6 @@ public abstract class BaseEntity implements EntityAccessor {
     public int hashCode() {
 	final int prime = 31;
 	int result = 1;
-	result = prime * result + ((changed == null) ? 0 : changed.hashCode());
-	result = prime * result + ((created == null) ? 0 : created.hashCode());
 	result = prime * result + ((deleted == null) ? 0 : deleted.hashCode());
 	result = (int) (prime * result + id);
 	return result;

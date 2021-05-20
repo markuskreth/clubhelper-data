@@ -1,5 +1,10 @@
 package de.kreth.clubhelper.data;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Gender {
 
     MALE(1), FEMALE(2);
@@ -22,7 +27,8 @@ public enum Gender {
 	}
     }
 
-    public static Gender valueOf(int id) {
+    @JsonCreator
+    public static Gender valueOf(@JsonProperty("id") int id) {
 	for (Gender g : values()) {
 	    if (g.id == id) {
 		return g;
