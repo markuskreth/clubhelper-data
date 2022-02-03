@@ -6,60 +6,73 @@ import java.io.Serializable;
  * The persistent class for the contact database table.
  */
 public class Contact extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -7631864028095077913L;
+	private static final long serialVersionUID = -7631864028095077913L;
 
-    public enum Type {
-	PHONE("Telefon"),
-	MOBILE("Mobile"),
-	EMAIL("Email");
+	public enum Type {
+		
+		PHONE("Telefon"), 
+		MOBILE("Mobile"), 
+		EMAIL("Email");
 
-	private final String name;
+		private final String name;
 
-	private Type(String name) {
-	    this.name = name;
+		private Type(String name) {
+			this.name = name;
+		}
+
+		public String getName() {
+			return name;
+		}
+		
+		public static Type valueByName(String name) {
+			if (name == null) {
+				return null;
+			}
+			for (Type element : values()) {
+				if (element.name.equals(name)) {
+					return element;
+				}
+			}
+			return null;
+		}
 	}
 
-	public String getName() {
-	    return name;
+	private String type;
+	private String value;
+
+	public String getType() {
+		return type;
 	}
-    }
 
-    private String type;
-    private String value;
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    public String getType() {
-	return type;
-    }
+	public String getValue() {
+		return value;
+	}
 
-    public void setType(String type) {
-	this.type = type;
-    }
+	public void setValue(String value) {
+		this.value = value;
+	}
 
-    public String getValue() {
-	return value;
-    }
+	@Override
+	public int hashCode() {
+		final int prime = 37;
+		int result = super.hashCode();
+		result = prime * result;
+		return result;
+	}
 
-    public void setValue(String value) {
-	this.value = value;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		return super.equals(obj);
+	}
 
-    @Override
-    public int hashCode() {
-	final int prime = 37;
-	int result = super.hashCode();
-	result = prime * result;
-	return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-	if (this == obj)
-	    return true;
-	return super.equals(obj);
-    }
-
-    @Override
-    public String toString() {
-	return "Contact [type=" + type + ", value=" + value + "]";
-    }
+	@Override
+	public String toString() {
+		return "Contact [type=" + type + ", value=" + value + "]";
+	}
 }
