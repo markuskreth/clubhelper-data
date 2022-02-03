@@ -19,10 +19,6 @@ public class Person extends BaseEntity implements Serializable {
 	private Integer gender;
 	private List<GroupDef> groups;
 
-	public Gender getGenderObject() {
-		return Gender.valueOf(gender);
-	}
-
 	public LocalDate getBirth() {
 		return birth;
 	}
