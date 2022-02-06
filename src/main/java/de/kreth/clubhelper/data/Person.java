@@ -1,5 +1,4 @@
 package de.kreth.clubhelper.data;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
