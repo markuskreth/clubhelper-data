@@ -1,21 +1,13 @@
 package de.kreth.clubhelper.data;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public enum Gender {
-
 	MALE(1), FEMALE(2);
-
 	private final int id;
-
 	private Gender(int id) {
 		this.id = id;
 	}
-
 	public int getId() {
 		return id;
 	}
-
 	public static Gender valueOf(Integer id) {
 		if (id != null) {
 			return valueOf(id.intValue());
@@ -23,8 +15,7 @@ public enum Gender {
 			return null;
 		}
 	}
-
-	public static Gender valueOf(@JsonProperty("id") int id) {
+	public static Gender valueOf(int id) {
 		for (Gender g : values()) {
 			if (g.id == id) {
 				return g;
@@ -32,7 +23,6 @@ public enum Gender {
 		}
 		throw new IllegalArgumentException("No Gender for id=" + id + " defined.");
 	}
-
 	public String localized() {
 		switch (this) {
 		case FEMALE:
