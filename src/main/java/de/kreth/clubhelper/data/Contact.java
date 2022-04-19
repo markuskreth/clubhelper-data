@@ -8,35 +8,6 @@ import java.io.Serializable;
 public class Contact extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = -7631864028095077913L;
 
-	public enum Type {
-		
-		PHONE("Telefon"), 
-		MOBILE("Mobile"), 
-		EMAIL("Email");
-
-		private final String name;
-
-		private Type(String name) {
-			this.name = name;
-		}
-
-		public String getName() {
-			return name;
-		}
-		
-		public static Type valueByName(String name) {
-			if (name == null) {
-				return null;
-			}
-			for (Type element : values()) {
-				if (element.name.equals(name)) {
-					return element;
-				}
-			}
-			return null;
-		}
-	}
-
 	private String type;
 	private String value;
 
