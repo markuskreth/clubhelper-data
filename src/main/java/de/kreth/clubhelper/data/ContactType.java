@@ -1,5 +1,7 @@
 package de.kreth.clubhelper.data;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum ContactType {
 
     PHONE("Telefon"),
@@ -12,6 +14,7 @@ public enum ContactType {
 	this.name = name;
     }
 
+    @JsonValue
     public String getName() {
 	return name;
     }
